@@ -5,39 +5,30 @@ body {
     background-color: #83a0a7;
     color: #333;
   }
-  input {
-    padding: 0.5rem;
-    font-size: 1rem;
-    width: 200px;
-    margin-right: 0.5rem;
-    border-radius: 8px;
-  }
+ 
   
   h1 {
     text-align: center;
     margin-top: 1rem;
   }
   
- /* button {
-    padding: 0.5rem 1rem;
-   
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 1rem auto;
-    display: block;
-  }*/
-  
-  button:hover {
-    background-color: darkorange;
-  }
-
-
   
   .app-container {
     max-width: 600px;
-    margin: 0 auto;       /* Centrera horisontellt */
+    margin: 0 auto;
     padding: 2rem;
-    text-align: center;   /* Centrera text */
+    text-align: center;
   }
+
+  .add-favourite-btn {
+    background-color: rgba(51, 134, 132, 0.484);
+    justify-content: center;
+  padding: 0.5rem;
+    border-radius: 7px;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+    .add-favourite-btn:hover {
+        background-color: rgb(55, 116, 115);
+    }
   

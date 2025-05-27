@@ -13,7 +13,7 @@ export function SearchBar({ searchQuery, setSearchQuery, onSearch }) {
           onChange={handleChange}
           placeholder="Sök på en plats"
         />
-        <button className='sök' onClick={onSearch}>Sök</button>
+        <button className='search-btn' onClick={onSearch}>Sök</button>
       </div>
     )
   }

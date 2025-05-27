@@ -1,10 +1,12 @@
-.search-bar input {
+input {
     padding: 0.5rem;
     font-size: 1rem;
     width: 200px;
     margin-right: 0.5rem;
-    border-radius: 10 px;
-  }
+    border-radius: 7px;
+    background-color: rgba(159, 241, 240, 0.235);
+    border: 2px solid #333
+}
 
   ul {
     list-style-type: none;
@@ -12,8 +14,15 @@
     margin: 0;
   }
 
-  .sök {
+  .search-btn {
+    background-color: rgba(51, 134, 132, 0.484);
     justify-content: center;
+    height: 2.3rem;
+    width: 2.7rem;
+    border-radius: 7px;
     align-items: center;
     margin-bottom: 1rem;
+  }
+  .search-btn:hover {
+    background-color: rgb(55, 116, 115);
   }

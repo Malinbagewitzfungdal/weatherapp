@@ -16,7 +16,7 @@ export function useWeather(lat, lon) {
         const current = await fetchCurrentWeather(lat, lon);
         const forecast = await fetchForecast(lat, lon);
 
-        // === Bearbeta forecast till daglig min/max + ikon ===
+        
         const dailyData = {};
 
         forecast.list.forEach((item) => {

@@ -7,7 +7,7 @@ export function WeatherDetails({ dailyForecast }) {
   }
 
   return (
-    <div>
+    <div className='weather-details'>
       <h3>5-dagars Prognos</h3>
       {dailyForecast.map((day, index) => (
         <div key={index}>

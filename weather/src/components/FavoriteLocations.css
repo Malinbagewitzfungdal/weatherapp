@@ -4,11 +4,31 @@
     justify-content: center;
     gap: 0.5rem;
   }
-  
-  .favorites button {
-    background: lightgray;
-    border: 1px solid gray;
-    padding: 0.3rem 0.7rem;
-    border-radius: 5px;
+
+  .locations {
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-right: px;
   }
   
+    .location-btn {
+      background-color: rgba(51, 134, 132, 0.484);
+      justify-content: center;
+      height: 2.3rem;
+      border-radius: 7px;
+      margin-bottom: 1rem;
+    }
+    .location-btn:hover {
+      background-color: rgb(55, 116, 115);
+    }
+    .remove-btn {
+      background-color: rgba(255, 0, 0, 0.484);
+      justify-content: center;
+      height: 2rem;
+      border-radius: 7px;
+      margin-bottom: 1rem;
+      margin-left: 5px;
+    }
+    .remove-btn:hover {
+      background-color: rgb(200, 0, 0);
+    }

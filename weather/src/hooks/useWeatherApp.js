@@ -1,4 +1,4 @@
-// hooks/useWeatherApp.js
+
 import { useState, useEffect } from 'react'
 import { useGeolocation } from './useGeolocation'
 import { useWeather } from './useWeather'

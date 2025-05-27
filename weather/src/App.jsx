@@ -36,9 +36,9 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Väderapplikation</h1>
+      <h1>Välkommen till väder.se</h1>
       <SearchBar {...searchBarProps} />
-      <button onClick={addFavorite}>Lägg till som favorit</button>
+      <button className='add-favourite-btn' onClick={addFavorite}>Lägg till som favorit</button>
       <FavoriteLocations {...favoriteLocationsProps} />
       {geoError && <p>Platsfel: {geoError}</p>}
       {searchError && <p>Sökfel: {searchError}</p>}

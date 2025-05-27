@@ -1,0 +1,43 @@
+body {
+    font-family: monospace, monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #83a0a7;
+    color: #333;
+  }
+  input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 200px;
+    margin-right: 0.5rem;
+    border-radius: 8px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+ /* button {
+    padding: 0.5rem 1rem;
+   
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 1rem auto;
+    display: block;
+  }*/
+  
+  button:hover {
+    background-color: darkorange;
+  }
+
+
+  
+  .app-container {
+    max-width: 600px;
+    margin: 0 auto;       /* Centrera horisontellt */
+    padding: 2rem;
+    text-align: center;   /* Centrera text */
+  }
+  

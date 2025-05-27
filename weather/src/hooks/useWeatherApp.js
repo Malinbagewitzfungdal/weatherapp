@@ -16,7 +16,7 @@ export function useWeatherApp() {
   const lat = coordinates?.lat || position?.lat
   const lon = coordinates?.lon || position?.lon
 
-  const { data, loading, error } = useWeather(lat, lon)
+  const { data, dailyForecast, loading, error } = useWeather(lat, lon)
 
   useEffect(() => {
     if (searchedCoords) {
@@ -51,6 +51,7 @@ const handleFavoriteSelect = (cityName) => {
     loading,
     error,
     data,
+    dailyForecast,
     favorites,
     addFavorite: handleAddFavorite,
     removeFavorite,

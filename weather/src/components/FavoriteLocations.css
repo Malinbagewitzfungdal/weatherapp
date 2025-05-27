@@ -1,0 +1,14 @@
+.favorites {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .favorites button {
+    background: lightgray;
+    border: 1px solid gray;
+    padding: 0.3rem 0.7rem;
+    border-radius: 5px;
+  }
+  

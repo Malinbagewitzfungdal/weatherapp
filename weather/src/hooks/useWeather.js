@@ -1,42 +1,60 @@
-import { useState, useEffect } from 'react'
-
-const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY
+import { useState, useEffect } from "react";
+import { fetchCurrentWeather, fetchForecast } from "../services/service";
 
 export function useWeather(lat, lon) {
-  const [data, setData] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [data, setData] = useState(null);
+  const [dailyForecast, setDailyForecast] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!lat || !lon) return
+    if (!lat || !lon) return;
 
     const fetchWeather = async () => {
-      setLoading(true)
+      setLoading(true);
       try {
-        const currentRes = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
-        )
-        const forecastRes = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
-        )
+        const current = await fetchCurrentWeather(lat, lon);
+        const forecast = await fetchForecast(lat, lon);
 
-        if (!currentRes.ok || !forecastRes.ok) {
-          throw new Error('Kunde inte hämta väderdata')
-        }
+        // === Bearbeta forecast till daglig min/max + ikon ===
+        const dailyData = {};
 
-        const current = await currentRes.json()
-        const forecast = await forecastRes.json()
+        forecast.list.forEach((item) => {
+          const date = new Date(item.dt * 1000).toLocaleDateString();
 
-        setData({ current, forecast })
+          if (!dailyData[date]) {
+            dailyData[date] = [];
+          }
+          dailyData[date].push(item);
+        });
+
+        const daily = Object.entries(dailyData)
+          .slice(0, 5)
+          .map(([date, items]) => {
+            const temps = items.map((i) => i.main.temp);
+            const temp_min = Math.min(...temps);
+            const temp_max = Math.max(...temps);
+            const icon = items[Math.floor(items.length / 2)].weather[0].icon;
+
+            return {
+              date,
+              temp_min: Math.round(temp_min),
+              temp_max: Math.round(temp_max),
+              icon,
+            };
+          });
+
+        setData({ current, forecast });
+        setDailyForecast(daily);
       } catch (err) {
-        setError(err)
+        setError(err.message);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchWeather()
-  }, [lat, lon])
+    fetchWeather();
+  }, [lat, lon]);
 
-  return { data, loading, error }
+  return { data, dailyForecast, loading, error };
 }

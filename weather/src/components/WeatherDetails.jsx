@@ -1,16 +1,21 @@
-import { WeatherIcon } from './WeatherIcon'
+import { WeatherIcon } from './WeatherIcon';
+import './WeatherDetails.css'; 
 
-export function WeatherDetails({ forecast }) {
+export function WeatherDetails({ dailyForecast }) {
+  if (!dailyForecast || dailyForecast.length === 0) {
+    return <p>Ingen prognos tillgänglig ännu...</p>;
+  }
+
   return (
     <div>
       <h3>5-dagars Prognos</h3>
-      {forecast.list.slice(0, 5).map((day, index) => (
+      {dailyForecast.map((day, index) => (
         <div key={index}>
-          <p>{new Date(day.dt * 1000).toLocaleDateString()}</p>
-          <p>Min/Max: {day.main.temp_min}°C / {day.main.temp_max}°C</p>
-          <WeatherIcon code={day.weather[0].icon} />
+          <p>{day.date}</p>
+          <p>Min/Max: {day.temp_min}°C / {day.temp_max}°C</p>
+          <WeatherIcon code={day.icon} />
         </div>
       ))}
     </div>
-  )
+  );
 }

@@ -1,3 +1,5 @@
+import './SearchBar.css'
+
 export function SearchBar({ searchQuery, setSearchQuery, onSearch }) {
     const handleChange = (e) => {
       setSearchQuery(e.target.value)
@@ -11,7 +13,7 @@ export function SearchBar({ searchQuery, setSearchQuery, onSearch }) {
           onChange={handleChange}
           placeholder="Sök på en plats"
         />
-        <button onClick={onSearch}>Sök</button>
+        <button className='sök' onClick={onSearch}>Sök</button>
       </div>
     )
   }

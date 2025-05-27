@@ -4,6 +4,7 @@ import { WeatherDetails } from './components/WeatherDetails'
 import { SearchBar } from './components/SearchBar'
 import { FavoriteLocations } from './components/FavoriteLocations'
 import { useWeatherApp } from './hooks/useWeatherApp'
+import './App.css'
 
 function App() {
   const {
@@ -16,6 +17,7 @@ function App() {
     loading,
     error,
     data,
+    dailyForecast,
     favorites,
     addFavorite,
     removeFavorite
@@ -33,7 +35,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app-container">
       <h1>Väderapplikation</h1>
       <SearchBar {...searchBarProps} />
       <button onClick={addFavorite}>Lägg till som favorit</button>
@@ -45,7 +47,7 @@ function App() {
       {data && (
         <>
           <WeatherDisplay data={data} />
-          <WeatherDetails forecast={data.forecast} />
+          <WeatherDetails dailyForecast={dailyForecast} />
         </>
       )}
     </div>

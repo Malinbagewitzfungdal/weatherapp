@@ -1,3 +1,5 @@
+import './SearchBar.css'
+
 export function FavoriteLocations({ favorites, onSelect, removeFavorite }) {
     return (
       <div>
@@ -9,7 +11,7 @@ export function FavoriteLocations({ favorites, onSelect, removeFavorite }) {
             {favorites.map((location, index) => (
               <li key={index}>
                 <button onClick={() => onSelect(location)}>{location}</button>
-                <button onClick={() => removeFavorite(location)}>❌</button>
+                <button onClick={() => removeFavorite(location)}>ta bort</button>
               </li>
             ))}
           </ul>

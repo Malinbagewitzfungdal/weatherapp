@@ -1,4 +1,3 @@
-// useSearch.js
 import { useState } from 'react';
 import { fetchCoordinatesByCity } from '../services/service';
 

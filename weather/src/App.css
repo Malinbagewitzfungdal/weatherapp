@@ -23,7 +23,7 @@ body {
   .add-favourite-btn {
     background-color: rgba(51, 134, 132, 0.484);
     justify-content: center;
-  padding: 0.5rem;
+    padding: 0.5rem;
     border-radius: 7px;
     align-items: center;
     margin-bottom: 1rem;
